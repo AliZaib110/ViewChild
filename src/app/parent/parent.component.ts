@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ChildComponent } from '../child/child.component';
 
 @Component({
@@ -8,4 +8,15 @@ import { ChildComponent } from '../child/child.component';
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css',
 })
-export class ParentComponent {}
+export class ParentComponent {
+  @ViewChild(ChildComponent) child?: ChildComponent;
+
+  constructor() {}
+
+  increase() {
+    this.child?.increaseByOne();
+  }
+  decrese() {
+    this.child?.decreaseByOne();
+  }
+}
