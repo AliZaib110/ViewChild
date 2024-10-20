@@ -5,8 +5,17 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './child.component.html',
-  styleUrl: './child.component.css'
+  styleUrl: './child.component.css',
 })
 export class ChildComponent {
-
+  counter: number = 0;
+  message: string = '';
+  increaseByOne() {
+    this.counter = +1;
+    this.message = 'counter :' + this.counter;
+  }
+  decreaseByOne() {
+    this.counter = -1;
+    this.message = 'counter :' + this.counter;
+  }
 }
